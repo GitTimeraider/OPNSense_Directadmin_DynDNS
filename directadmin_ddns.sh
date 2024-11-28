@@ -3,7 +3,7 @@
 DOMAIN=""
 
 # Names of the A records
-declare -a DNS_NAMES=("banana" "apple" "pear")
+declare -a DNS_NAMES=("banana.domain.com" "apple.domain.com" "pear.domain.com")
 # The URL to the DirectAdmin server we log in to
 DIRECTADMIN=""
 
