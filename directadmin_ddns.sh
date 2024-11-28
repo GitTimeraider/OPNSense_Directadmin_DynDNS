@@ -107,7 +107,7 @@ API_command() {
   
   local ret=1
   local action=${1}
-  local respons=$(curl -s --max-time 15 --user $DIRECTUSER:$DIRECTPW "${server}/CMD_API_DNS_CONTROL?domain=${domain}${action}")
+  local respons=$(curl -s --max-time 15 --user $DIRECTUSER:$DIRECTPW "${DIRECTHOST}/CMD_API_DNS_CONTROL?domain=${DOMAIN}${action}")
   # Expected return string: error=0&text=Records%20Deleted&details=View records
     
   if [[ ${respons} =~ ^error=([0-1])\&text=(.*)$ ]]; then
