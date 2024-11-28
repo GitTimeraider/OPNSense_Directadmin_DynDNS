@@ -3,7 +3,7 @@
 DOMAIN=""
 
 # Names of the A records
-declare -a DNS_NAMES=(value1 value2 .... valueN)
+declare -a DNS_NAMES=("banana" "apple" "pear")
 # The URL to the DirectAdmin server we log in to
 DIRECTADMIN=""
 
@@ -43,7 +43,7 @@ if ! validateIP "${CURRENT_IP}"; then
     exit
 fi
 
-for DNS_NAME in "${!DNS_NAMES[@]}"
+for DNS_NAME in ${DNS_NAMES[@]}; do
 do
 # Check if the DNS records need to be updated
 if [ "${CONFIGURED_IP}" != "${CURRENT_IP}" ]; then
