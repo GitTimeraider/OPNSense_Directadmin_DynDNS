@@ -44,7 +44,6 @@ if ! validateIP "${CURRENT_IP}"; then
 fi
 
 for DNS_NAME in ${DNS_NAMES[@]}; do
-do
 # Check if the DNS records need to be updated
 if [ "${CONFIGURED_IP}" != "${CURRENT_IP}" ]; then
     # Update the DNS records
