@@ -23,7 +23,7 @@ main() {
   if detect_IP_change ; then
     echo "IP needs updating from ${stored_IP} to ${curr_IP}."
     
-    for subdomain in ${subdomains}; do
+    for subdomain in ${subdomains[@]}; do
       echo "Updating domain ${subdomain}."
       if ! update_DNS ${subdomain}; then
         # User choice: return 1 prevents other subdomains from being updated.
