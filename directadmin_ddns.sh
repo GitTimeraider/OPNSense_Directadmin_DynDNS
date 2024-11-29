@@ -29,13 +29,6 @@ function validateIP() {
     return ${validresult}
 }
 
-# Retrieve and check current DNS IP
-CONFIGURED_IP="$(dig +short @ns1.mijn.host "${DNS_NAME}")"
-if ! validateIP "${CONFIGURED_IP}"; then
-    echo "Invalid configured IP: ${CONFIGURED_IP}. Aborting." >&2
-    exit
-fi
-
 # Retrieve and check current local IP
 CURRENT_IP="$(curl -s https://api.myip.com/ | jq -r .ip)"
 if ! validateIP "${CURRENT_IP}"; then
@@ -44,6 +37,13 @@ if ! validateIP "${CURRENT_IP}"; then
 fi
 
 for DNS_NAME in ${DNS_NAMES[@]}; do
+# Retrieve and check current DNS IP
+CONFIGURED_IP="$(dig +short @ns1.mijn.host "${DNS_NAME}")"
+if ! validateIP "${CONFIGURED_IP}"; then
+    echo "Invalid configured IP: ${CONFIGURED_IP}. Aborting." >&2
+    exit
+fi
+
 # Check if the DNS records need to be updated
 if [ "${CONFIGURED_IP}" != "${CURRENT_IP}" ]; then
     # Update the DNS records
