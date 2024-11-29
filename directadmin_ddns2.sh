@@ -7,6 +7,12 @@ DIRECTHOST="https://server.yourhosting.com:2222"
 DOMAIN="mydomain.com"
 declare -a subdomains=("subdomain1 subdomain2")
 
+string="www."
+for sub in $subdomains;
+do
+subdomains+=( "$string$sub" )
+done
+
 # Local file
 IP_file="ipaddress"
 
