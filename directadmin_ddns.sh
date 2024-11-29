@@ -3,7 +3,7 @@
 DOMAIN=""
 
 # Names of the A records
-declare -a DNS_NAMES=("banana.domain.com" "apple.domain.com" "pear.domain.com")
+declare -a DNS_NAMES=("banana" "apple" "pear")
 # Adding www. to the names
 string="www."
 for sub in $DNS_NAMES;
