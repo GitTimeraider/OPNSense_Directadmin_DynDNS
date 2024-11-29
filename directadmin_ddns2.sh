@@ -1,10 +1,10 @@
 #!/usr/local/bin/bash
 
 # User and server details
-DIRECTUSER="username"
-DIRECTPW="loginkey"
-DIRECTHOST="https://server.yourhosting.com:2222"
-DOMAIN="mydomain.com"
+directuser="username"
+directpw="loginkey"
+directhost="https://server.yourhosting.com:2222"
+domain="mydomain.com"
 declare -a subdomains=("subdomain1 subdomain2")
 
 string="www."
@@ -113,7 +113,7 @@ API_command() {
   
   local ret=1
   local action=${1}
-  local respons=$(curl -sS --insecure --user $DIRECTUSER:$DIRECTPW "${DIRECTHOST}/CMD_API_DNS_CONTROL?domain=${DOMAIN}${action}")
+  local respons=$(curl -sS --insecure --user $directuser:$directpw "${directhost}/CMD_API_DNS_CONTROL?domain=${domain}${action}")
   # Expected return string: error=0&text=Records%20Deleted&details=View records
     
   if [[ ${respons} =~ ^error=([0-1])\&text=(.*)$ ]]; then
