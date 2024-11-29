@@ -69,7 +69,7 @@ detect_IP_change() {
   local changed=0
   
   # Retrieve public IP address and validate
-  curr_IP=$(dig @ns1.mijn.host ANY myip.opendns.com +short)
+  curr_IP="$(curl -s https://api.myip.com/ | jq -r .ip)"
   if ! valid_IP ${curr_IP}; then
     echo "Public IP was not retrieved: $CURR_ADD. Exiting script.."
     return 1
