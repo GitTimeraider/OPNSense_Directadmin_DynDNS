@@ -4,6 +4,13 @@ DOMAIN=""
 
 # Names of the A records
 declare -a DNS_NAMES=("banana.domain.com" "apple.domain.com" "pear.domain.com")
+# Adding www. to the names
+string="www."
+for sub in $DNS_NAMES;
+do
+DNS_NAMES+=( "$string$sub" )
+done
+
 # The URL to the DirectAdmin server we log in to
 DIRECTADMIN=""
 
