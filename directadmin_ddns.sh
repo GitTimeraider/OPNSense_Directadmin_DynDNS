@@ -3,7 +3,7 @@
 DOMAIN="Test.com"
 
 # Names of the A records
-declare -a DNS_NAME_ARRAY=("test food settings lol")
+declare -a DNS_NAME_ARRAY=("$*")
 declare -a DNS_NAMES=("")
 
 # Adding www. and domainname to the subdomainnames
