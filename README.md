@@ -2,7 +2,7 @@
 
 Dynamic DNS setup for OPNSense - Allows for setting up Dynamic DNS based on Direct Admin API within OPNSense Cron UI
 <br />
-This simple script is mostly made for myself and thus might not be fully suited for others. The script ofcourse can be adjusted accordingly with a little bit of Bash knowledge.
+!!! This simple script is mostly made for myself and thus might not be fully suited for others. It lacks features and might have additions that are undesired for some. The script ofcourse can be adjusted accordingly with a little bit of Bash knowledge.
 <br /><br />
 actions_daddns.conf is to be placed in /usr/local/opnsense/service/conf/actions.d
 <br />
