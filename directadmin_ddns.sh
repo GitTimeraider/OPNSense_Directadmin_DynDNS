@@ -49,7 +49,7 @@ function validateIP() {
 CURRENT_IP="$(curl -s https://api.myip.com/ | jq -r .ip)"
 if ! validateIP "${CURRENT_IP}"; then
     echo "Invalid active IP: ${CURRENT_IP}. Aborting." >&2
-    exit
+    exit 1
 fi
 
 for DNS_NAME in ${DNS_NAMES[@]}; do
@@ -57,7 +57,7 @@ for DNS_NAME in ${DNS_NAMES[@]}; do
 CONFIGURED_IP="$(dig +short @ns1.mijn.host "${DNS_NAME}")"
 if ! validateIP "${CONFIGURED_IP}"; then
     echo "Invalid configured IP: ${CONFIGURED_IP}. Aborting." >&2
-    exit
+    exit 1
 fi
 
 # Check if the DNS records need to be updated
