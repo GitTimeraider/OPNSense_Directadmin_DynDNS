@@ -69,6 +69,7 @@ if [ "${CONFIGURED_IP}" != "${CURRENT_IP}" ]; then
     else
         echo "$(date +"%F %T") DNS record update failed" >&2
         echo "${RESULT}" >&2
+        continue
     fi
 fi
 done
