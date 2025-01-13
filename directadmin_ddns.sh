@@ -58,6 +58,7 @@ CONFIGURED_IP="$(dig +short @ns1.mijn.host "${DNS_NAME}")"
 if ! validateIP "${CONFIGURED_IP}"; then
     echo "Invalid configured IP: ${CONFIGURED_IP}. Aborting." >&2
     exit 1
+    continue
 fi
 
 # Check if the DNS records need to be updated
@@ -69,7 +70,6 @@ if [ "${CONFIGURED_IP}" != "${CURRENT_IP}" ]; then
     else
         echo "$(date +"%F %T") DNS record update failed" >&2
         echo "${RESULT}" >&2
-        continue
     fi
 fi
 done
