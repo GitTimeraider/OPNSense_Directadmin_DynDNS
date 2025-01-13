@@ -57,7 +57,6 @@ for DNS_NAME in ${DNS_NAMES[@]}; do
 CONFIGURED_IP="$(dig +short @ns1.mijn.host "${DNS_NAME}")"
 if ! validateIP "${CONFIGURED_IP}"; then
     echo "Invalid configured IP: ${CONFIGURED_IP}. Aborting." >&2
-    exit 1
     continue
 fi
 
