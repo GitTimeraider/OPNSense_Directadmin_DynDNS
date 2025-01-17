@@ -30,10 +30,7 @@ Checks IP of DNS names based on DNS server
 <br /><br />
 If difference is detected:
 <br />
-Takes the domain name and updates the domain name and its www. variant
+Takes the domain name and updates the domain name
 <br />
-Takes the subdomains noted in the parameters in the Cron UI and updates the subdomains and their www. variants
+Takes the subdomains noted in the parameters in the Cron UI and updates the subdomains
 <br /><br />
-What does the script expect:
-<br />
-The subdomains and www. variants need to exist or it will error out for safety
