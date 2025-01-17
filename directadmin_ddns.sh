@@ -1,21 +1,15 @@
 #!/usr/local/bin/bash
-# Domain name within DirectAdmin
 DOMAIN="test.com"
 
-# Names of the A records
 declare -a DNS_NAME_ARRAY=("$*")
 declare -a DNS_NAMES=("")
-string="www."
 
-# Adding main domain names
-DNS_NAMES+=( "$string$DOMAIN" )
 DNS_NAMES+=( "$DOMAIN" )
 
 
 # Adding the subdomains and/or adding www. to the names
 for sub in ${DNS_NAME_ARRAY[@]};
 do
-DNS_NAMES+=( "$string$sub.$DOMAIN" )
 DNS_NAMES+=( "$sub.$DOMAIN" )
 done
 
